@@ -12,4 +12,10 @@ class Category extends Model
         'image'
     ];
     use HasFactory;
+    public function getImage(){
+        if($this->image){
+            return asset('assets/images/category_image/'.$this->image);
+        }
+        return 'https://www.svgrepo.com/show/496036/category.svg';
+    }
 }

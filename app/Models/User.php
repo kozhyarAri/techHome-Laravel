@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function getImage(){
         if($this->image){
-            return asset('assts/images/profile_image/'.$this->image);
+            return asset('assets/images/profile_image/'.$this->image);
         }
         return 'https://www.svgrepo.com/show/295402/user-profile.svg';
     }

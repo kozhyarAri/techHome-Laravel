@@ -17,7 +17,7 @@
 
     <div class="relative overflow-x-auto space-y-2">
         <br>
-        <a class="bg-green-600 px-2 py-1 rounded-md text-white" href="{{ route('user.create') }}">Add User Admin</a>
+        <a class="bg-green-600 px-2 py-1 rounded-md text-white" href="{{ route('category.create') }}">Add Category</a>
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -28,29 +28,23 @@
                         Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
-                    </th>
-                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @foreach ($categores as $category)
                     <tr class="bg-white border-b">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <img class="h-10 w-10 object-cover" src="{{ $user->getImage() }}" alt="">
+                            <img class="h-10 w-10 object-cover" src="{{ $category->getImage() }}" alt="">
                         </th>
                         <td class="px-6 py-4">
-                            {{ $user->name }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $user->email }}
+                            {{ $category->name }}
                         </td>
                         <td class="px-6 py-4 flex gap-1">
                             <a class="bg-green-400 px-2 py-1 rounded-md text-white"
-                                href="{{ route('user.edit', ['user' => $user->id]) }}">Edit</a>
-                            <form method="POST" action="{{ route('user.destroy', ['user' => $user->id]) }}">
+                                href="{{ route('category.edit', ['category' => $category->id]) }}">Edit</a>
+                            <form method="POST" action="{{ route('category.destroy', ['category' => $category->id]) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-600 px-2 py-1 rounded-md text-white" type="submit">Delete</button>
