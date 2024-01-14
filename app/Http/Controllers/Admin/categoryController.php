@@ -32,7 +32,7 @@ class categoryController extends Controller
     {
         $validated = $request->validate([
             'name'=> 'required|min:2',
-            'image'=>'nullable|mimes:png,jpg,jpeg,svg',
+            'image'=>'required|mimes:png,jpg,jpeg,svg',
         ]);
         if($request->image){
             $image = $request->image;

@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Category;
+use App\Models\Device;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
-class userController extends Controller
+class deviceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.user.index', compact('users'));
+        $devices = Device::all();
+        return view('admin.device.index', compact('devices'));
     }
 
     /**
@@ -23,7 +24,8 @@ class userController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $categores = Category::all();
+        return view('admin.device.create', compact('categores'));
     }
 
     /**
@@ -33,35 +35,46 @@ class userController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|min:2',
-            'email' => 'required|unique:users,email|email',
-            'password' => 'required|min:6|confirmed',
-            'image' => 'nullable|mimes:png,jpg,jpeg,svg',
-            'role' => 'required'
+            'review' => 'required',
+            'ram' => 'required|numeric',
+            'cpu' => 'required',
+            'storage' => 'required',
+            'main_camera' => 'required',
+            'selfie_camera' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'required|mimes:png,jpg,jpeg,svg',
+            'category_id' => 'required',
         ]);
-        $imageName = null;
-        if ($request->image) {
-            $image = $request->image;
-            $imageName = time() . hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/images/profile_image'), $imageName);
-        }
-        $user = User::create([
+        
+        $image = $request->image;
+        $imageName = time() . hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/images/device_image'), $imageName);
+
+        $device = Device::create([
             'name' => $validated['name'],
-            'email' => $validated['email'],
-            'role' => $validated['role'],
-            'password' => Hash::make($validated['password']),
+            'review' => $validated['review'],
+            'ram'=> $validated['ram'],
+            'cpu'=> $validated['cpu'],
+            'storage'=> $validated['storage'],
+            'main_camera'=> $validated['main_camera'],
+            'selfie_camera'=> $validated['selfie_camera'],
+            'price'=> $validated['price'],
+            'category_id'=> $validated['category_id'],
+            'user_id'=> Auth::user()->id,
             'image' => $imageName
         ]);
 
-        if ($user) {
-            return redirect()->route('user.index')->with('msg', 'User Added');
+        if ($device) {
+            return redirect()->route('device.index')->with('msg', 'Device Added');
         }
-        return redirect()->route('user.create')->with('msg', 'Somthing Wrong');
+        return redirect()->route('device.create')->with('msg', 'Somthing Wrong');
     }
 
     public function edit(string $id)
     {
-        $user = User::findOrfail($id);
-        return view('admin.user.edit', compact('user'));
+        $categores = Category::all();
+        $device = Device::findOrfail($id);
+        return view('admin.device.edit', compact(['device','categores']));
     }
 
     /**
