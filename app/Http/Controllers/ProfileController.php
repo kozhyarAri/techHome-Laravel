@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,5 +57,25 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function updateImage(Request $request)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+
+        $request->validate([
+            'image' => 'required|mimes:png,jpg,jpeg,svg',
+        ]);
+        $path = 'assets/images/profile_image/' . $user->image;
+        if (file_exists($path) && $user->image) {
+            unlink($path);
+        }
+        $image = $request->image;
+        $imageName = time() . hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/images/profile_image'), $imageName);
+        $user->update([
+            'image' => $imageName
+        ]);
+        return redirect()->back();
     }
 }
