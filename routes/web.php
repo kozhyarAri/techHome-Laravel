@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\categoryController;
 use App\Http\Controllers\Admin\deviceController;
+use App\Http\Controllers\Admin\infoController;
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/user', userController::class)->except('show');
     Route::resource('admin/category', categoryController::class)->except('show');
     Route::resource('admin/device', deviceController::class)->except('show');
+    Route::resource('admin/info', infoController::class)->only(['index','edit','update']);
+
 
 
 
