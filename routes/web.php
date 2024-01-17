@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\deviceController;
 use App\Http\Controllers\Admin\infoController;
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
+use App\Models\Device;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +26,10 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $userCount = User::count();
+    $categoryCount = Category::count();
+    $deviceCount = Device::count();
+    return view('dashboard',compact(['userCount','categoryCount','deviceCount']));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

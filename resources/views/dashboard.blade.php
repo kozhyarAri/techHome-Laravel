@@ -1,17 +1,28 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.admin')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
+@section('content')
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+        <a href="{{ route('user.index') }}">
+            <div class="bg-slate-700 text-white flex flex-col justify-center items-center py-5 space-y-2 shadow-xl rounded-xl">
+                <img class="h-28 w-28" src="{{ asset('assets/images/users.png') }}" alt="">
+                <div class="text-2xl">Users</div>
+                <div class="text-3xl font-semibold">{{ $userCount }}</div>
             </div>
-        </div>
+        </a>
+        <a href="{{ route('category.index') }}">
+            <div class="bg-slate-700 text-white flex flex-col justify-center items-center py-5 space-y-2 shadow-xl rounded-xl">
+                <img class="h-28 w-28" src="{{ asset('assets/images/category.png') }}" alt="">
+                <div class="text-2xl">Category</div>
+                <div class="text-3xl font-semibold">{{ $categoryCount }}</div>
+            </div>
+        </a>
+        <a href="{{ route('device.index') }}">
+            <div class="bg-slate-700 text-white flex flex-col justify-center items-center py-5 space-y-2 shadow-xl rounded-xl">
+                <img class="h-28 w-28" src="{{ asset('assets/images/devices.png') }}" alt="">
+                <div class="text-2xl">Devices</div>
+                <div class="text-3xl font-semibold">{{ $deviceCount }}</div>
+            </div>
+        </a>
+
     </div>
-</x-app-layout>
+@endsection
