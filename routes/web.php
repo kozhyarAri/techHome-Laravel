@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\deviceController;
 use App\Http\Controllers\Admin\infoController;
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\publicController;
 use App\Models\Category;
 use App\Models\Device;
 use App\Models\User;
@@ -21,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('public.index');
-});
+Route::get('/',[publicController::class,'index'])->name('index');
+Route::get('/device/{id}',[publicController::class,'deviceDetail'])->name('deviceDetail');
+
 
 Route::get('/dashboard', function () {
     $userCount = User::count();

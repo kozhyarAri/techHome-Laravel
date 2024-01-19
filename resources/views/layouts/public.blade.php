@@ -88,7 +88,7 @@
     </div>
     <footer class="h-20 bg-gray-900 mt-10 justify-center items-center flex flex-col">
         <div></div>
-        <div class="text-white text-xs md:text-xl">©2024 TechHome is a registered trademark. All Rights Reserved.</div>
+        <div class="text-white text-xs md:text-xl">© 2024 <a target="_blank" href="https://linktr.ee/kozhyar" class="text-st">kozhyar</a>. All Rights Reserved.</div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
