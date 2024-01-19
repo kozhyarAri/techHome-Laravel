@@ -34,7 +34,7 @@
             @endforeach
         </div>
         <div class="w-full mt-5 flex justify-center">
-            <a
+            <a href="{{ route('devices',['id'=>0]) }}"
                 class="text-gray-900 w-1/2 cursor-pointer hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See
                 More</a>
         </div>

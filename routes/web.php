@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[publicController::class,'index'])->name('index');
 Route::get('/device/{id}',[publicController::class,'deviceDetail'])->name('deviceDetail');
+Route::get('/devices/{id}',[publicController::class,'devices'])->name('devices');
+
 
 
 Route::get('/dashboard', function () {
