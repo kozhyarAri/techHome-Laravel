@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('layout.public',function($view){
+        view()->composer('layouts.public',function($view){
             $categorys = Category::all();
             $view->with(['categorys'=>$categorys]);
         });

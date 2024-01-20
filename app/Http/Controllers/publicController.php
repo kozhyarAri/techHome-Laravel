@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Device;
+use App\Models\EmailMessage;
 use App\Models\info;
 use Illuminate\Http\Request;
 
@@ -30,5 +31,28 @@ class publicController extends Controller
             $devices = Device::latest()->orderBy('id','DESC')->paginate(9);
         }
         return view('public.devices',compact(['categorys','devices']));
+    }
+    public function about(){
+        $info = info::select(['about'])->first();
+        return view('public.about',compact('info'));
+    }
+
+    public function contact(){
+        return view('public.contact');
+    }
+
+    public function sendEmail(Request $request){
+        $validate = $request->validate([
+            'email'=>'string|email',
+            'name' => 'string',
+            'message' => 'string|max:1000'
+        ]);
+        $email = EmailMessage::create($validate);
+
+        if($email){
+            return redirect()->back()->with('msg','Email Sended..');
+        }else{
+            return redirect()->back()->with('msg','SomeThing Wrong');
+        }
     }
 }
