@@ -4,10 +4,12 @@ use App\Http\Controllers\Admin\categoryController;
 use App\Http\Controllers\Admin\deviceController;
 use App\Http\Controllers\Admin\infoController;
 use App\Http\Controllers\Admin\userController;
+use App\Http\Controllers\EmailMessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\publicController;
 use App\Models\Category;
 use App\Models\Device;
+use App\Models\EmailMessage;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +39,8 @@ Route::get('/dashboard', function () {
     $userCount = User::count();
     $categoryCount = Category::count();
     $deviceCount = Device::count();
-    return view('dashboard',compact(['userCount','categoryCount','deviceCount']));
+    $messageCount = EmailMessage::count();
+    return view('dashboard',compact(['userCount','categoryCount','deviceCount','messageCount']));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -46,6 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/category', categoryController::class)->except('show');
     Route::resource('admin/device', deviceController::class)->except('show');
     Route::resource('admin/info', infoController::class)->only(['index','edit','update']);
+    Route::resource('admin/emailMessage', EmailMessageController::class)->only(['index','destroy','show']);
+
 
 
 

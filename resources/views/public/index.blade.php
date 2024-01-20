@@ -9,9 +9,12 @@
             <div class="text-lg md:text-2xl cursor-pointer transition-all hover:scale-105">
                 {{ $info->homeSubTitle }}
             </div>
-            <div
-                class="text-gray-900 transition-all w-1/3 cursor-pointer hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                About Us</div>
+            <a href="{{ route('about') }}">
+                <div
+                    class="text-gray-900 transition-all w-1/3 cursor-pointer hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    About Us</div>
+            </a>
+
         </div>
         <div class="md:w-1/2 justify-end flex">
             <img src="{{ asset('assets/img/WebDevices.svg') }}" alt="" class="h-96">
@@ -34,7 +37,7 @@
             @endforeach
         </div>
         <div class="w-full mt-5 flex justify-center">
-            <a href="{{ route('devices',['id'=>0]) }}"
+            <a href="{{ route('devices', ['id' => 0]) }}"
                 class="text-gray-900 w-1/2 cursor-pointer hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See
                 More</a>
         </div>

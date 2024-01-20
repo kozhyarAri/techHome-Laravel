@@ -23,6 +23,13 @@
                 <div class="text-3xl font-semibold">{{ $deviceCount }}</div>
             </div>
         </a>
+        <a href="{{ route('emailMessage.index') }}">
+            <div class="bg-slate-700 text-white flex flex-col justify-center items-center py-5 space-y-2 shadow-xl rounded-xl">
+                <img class="h-28 w-28" src="https://www.svgrepo.com/show/262781/email.svg" alt="">
+                <div class="text-2xl">Email Messages</div>
+                <div class="text-3xl font-semibold">{{ $messageCount }}</div>
+            </div>
+        </a>
 
     </div>
 @endsection

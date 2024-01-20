@@ -20,9 +20,9 @@
     <nav class=" fixed w-full md:pt-5 z-50">
         <div
             class="bg-white max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:rounded-full shadow-xl">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="{{ route('index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('assets/img/logo.svg') }}" class="h-8" alt="Logo" />
-                <div class="self-center text-2xl font-semibold whitespace-nowrap text-black">TechHome</div>
+                <div class="self-center text-2xl font-semibold whitespace-nowrap text-black">{{ config('app.name') }}</div>
             </a>
             <button data-collapse-toggle="navbar-dropdown" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
