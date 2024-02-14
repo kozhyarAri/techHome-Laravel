@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     @if (session()->has('msg'))
-        <div class="flex w-1/2 my-3 mx-auto items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
+        <div class="flex w-1/2 my-3 mx-auto items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50"
             role="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor" viewBox="0 0 20 20">
@@ -17,9 +17,9 @@
     <form enctype="multipart/form-data" class="max-w-sm mx-auto" method="POST" action="{{ route('user.store') }}">
         @csrf
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
             <input type="text" id="name" name="name" value="{{ old('name') }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="name" required>
             @error('name')
                 <div class="text-sm text-red-700">
@@ -28,9 +28,9 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">email</label>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">email</label>
             <input type="email" id="email" name="email" value="{{ old('email') }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="name@gmail.com" required>
             @error('email')
                 <div class="text-sm text-red-700">
@@ -39,9 +39,9 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">password</label>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">password</label>
             <input type="password" id="password" name="password"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required>
             @error('password')
                 <div class="text-sm text-red-700">
@@ -50,16 +50,16 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">password
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">password
                 confirmation</label>
             <input type="password" id="password" name="password_confirmation"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 required>
         </div>
         <div class="mb-5">
-            <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a role</label>
+            <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Select a role</label>
             <select id="role" name="role"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                 <option selected disabled>Choose a role</option>
                 <option value="0">admin</option>
                 <option value="1">super Admin</option>
@@ -71,10 +71,10 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload
+            <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Upload
                 Image</label>
             <input name="image"
-                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                 id="file_input" type="file">
             @error('image')
                 <div class="text-sm text-red-700">

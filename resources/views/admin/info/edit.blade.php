@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     @if (session()->has('msg'))
-        <div class="flex w-1/2 my-3 mx-auto items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600"
+        <div class="flex w-1/2 my-3 mx-auto items-center p-4 text-sm text-gray-800 border border-gray-300 rounded-lg bg-gray-50 "
             role="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor" viewBox="0 0 20 20">
@@ -18,27 +18,27 @@
         action="{{ route('info.update', ['info' => $info->id]) }}">
         @csrf
         @method('PUT')
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Home Title</label>
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Home Title</label>
         <textarea id="message" rows="4" name="homeTitle" 
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Write your review here...">{{ $info->homeTitle }}</textarea>
             @error('homeTitle')
             <div class="text-sm text-red-700">
                 {{ $message }}
             </div>
         @enderror
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Home SubTitle</label>
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Home SubTitle</label>
         <textarea id="message" rows="4" name="homeSubTitle" 
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
             placeholder="Write your review here...">{{ $info->homeSubTitle }}</textarea>
             @error('homeSubTitle')
             <div class="text-sm text-red-700">
                 {{ $message }}
             </div>
         @enderror
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About</label>
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">About</label>
         <textarea id="message" rows="4" name="about" 
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Write your review here...">{{ $info->about }}</textarea>
             @error('about')
             <div class="text-sm text-red-700">
@@ -46,9 +46,9 @@
             </div>
         @enderror
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Phone Number</label>
             <input type="text" id="name" name="phoneNumber" value="{{ $info->phoneNumber }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="phoneNumber" required>
             @error('phoneNumber')
                 <div class="text-sm text-red-700">
@@ -57,9 +57,9 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook Link</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Facebook Link</label>
             <input type="text" id="name" name="facebookLink" value="{{ $info->facebookLink }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="facebookLink" required>
             @error('facebookLink')
                 <div class="text-sm text-red-700">
@@ -68,9 +68,9 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram Link</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Instagram Link</label>
             <input type="text" id="name" name="intsaLink" value="{{ $info->intsaLink }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="intsaLink" required>
             @error('intsaLink')
                 <div class="text-sm text-red-700">
@@ -79,9 +79,9 @@
             @enderror
         </div>
         <div class="mb-5">
-            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">X Link</label>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">X Link</label>
             <input type="text" id="name" name="xLink" value="{{ $info->xLink }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="xLink" required>
             @error('xLink')
                 <div class="text-sm text-red-700">

@@ -1,5 +1,5 @@
 <a href="{{ route('deviceDetail', ['id' => $device->id]) }}"
-    class="h-72 w-full flex bg-white flex-col items-center justify-center shadow-xl rounded-xl cursor-pointer hover:scale-95 transition-all">
+    class="h-80 w-full flex bg-white flex-col items-center justify-center shadow-xl rounded-xl cursor-pointer hover:scale-95 transition-all">
     <img src="{{ asset('assets/images/device_image/' . $device->image) }}" alt="" class="h-24 md:h-32">
     <div class="flex w-full p-2 justify-start">
         <div class="text-xl md:text-2xl border-b-2 border-dotted font-semibold">{{ $device->name }}</div>

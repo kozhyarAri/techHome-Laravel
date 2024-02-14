@@ -7,7 +7,7 @@
         </div>
         <div class="flex flex-col justify-start  md:w-2/3 gap-3 px-1 md:px-5">
             <div class="flex items-center space-x-1">
-                <img class="h-5" src="https://www.svgrepo.com/show/526542/eye.svg" alt="">
+                <img class="h-5" class="object-cover" src="https://www.svgrepo.com/show/526542/eye.svg" alt="">
                 <div>
                     {{ $device->view_counts }}
                 </div>
