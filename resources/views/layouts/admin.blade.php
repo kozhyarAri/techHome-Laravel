@@ -105,7 +105,7 @@
                         <span class="ms-3">Dashboard</span>
                     </a>
                 </li>
-                @if (Auth::user()->role)
+                @can('superAdmin')
                     <li
                         class="{{ in_array(Route::currentRouteName(), ['user.index', 'user.create', 'user.edit']) ? 'bg-stone-300 rounded-lg' : '' }}">
                         <a href="{{ route('user.index') }}" class="flex items-center p-2 text-gray-900 rounded-l">
@@ -118,7 +118,7 @@
                             <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
                         </a>
                     </li>
-                @endif
+                @endcan
                 <li
                     class="{{ in_array(Route::currentRouteName(), ['category.index', 'category.create', 'category.edit']) ? 'bg-stone-300 rounded-lg' : '' }}">
                     <a href="{{ route('category.index') }}"

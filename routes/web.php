@@ -45,7 +45,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::resource('admin/user', userController::class)->except('show')->middleware('isAdmin');
+    Route::resource('admin/user', userController::class)->except('show')->middleware('can:superAdmin');
     Route::resource('admin/category', categoryController::class)->except('show');
     Route::resource('admin/device', deviceController::class)->except('show');
     Route::resource('admin/info', infoController::class)->only(['index','edit','update']);
