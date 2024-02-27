@@ -36,7 +36,8 @@
                     </button>
                     <a href="{{ route('index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="{{ asset('assets/img/logo.svg') }}" class="h-8" alt="Logo" />
-                        <div class="self-center text-2xl font-semibold whitespace-nowrap text-black">{{ config('app.name') }}</div>
+                        <div class="self-center text-2xl font-semibold text-black whitespace-nowrap">
+                            {{ config('app.name') }}</div>
                     </a>
                 </div>
                 <div class="flex items-center">
@@ -104,19 +105,20 @@
                         <span class="ms-3">Dashboard</span>
                     </a>
                 </li>
-                <li
-                    class="{{ in_array(Route::currentRouteName(), ['user.index', 'user.create', 'user.edit']) ? 'bg-stone-300 rounded-lg' : '' }}">
-                    <a href="{{ route('user.index') }}"
-                        class="flex items-center p-2 text-gray-900 rounded-l">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 20 18">
-                            <path
-                                d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-                    </a>
-                </li>
+                @if (Auth::user()->role)
+                    <li
+                        class="{{ in_array(Route::currentRouteName(), ['user.index', 'user.create', 'user.edit']) ? 'bg-stone-300 rounded-lg' : '' }}">
+                        <a href="{{ route('user.index') }}" class="flex items-center p-2 text-gray-900 rounded-l">
+                            <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 18">
+                                <path
+                                    d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                            </svg>
+                            <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+                        </a>
+                    </li>
+                @endif
                 <li
                     class="{{ in_array(Route::currentRouteName(), ['category.index', 'category.create', 'category.edit']) ? 'bg-stone-300 rounded-lg' : '' }}">
                     <a href="{{ route('category.index') }}"
@@ -156,7 +158,7 @@
                         </svg>
                         <span class="flex-1 ms-3 whitespace-nowrap">EmailMessage</span>
                         @if ($message > 0)
-                            <span class="bg-red-900 text-white px-2 rounded-md">{{ $message }}</span>
+                            <span class="px-2 text-white bg-red-900 rounded-md">{{ $message }}</span>
                         @endif
                     </a>
                 </li>
@@ -165,8 +167,8 @@
                     <a href="{{ route('info.index') }}"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
 
-                        <svg class="w-6 h-6 text-gray-800" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M18 2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM2 18V7h6.7l.4-.409A4.309 4.309 0 0 1 15.753 7H18v11H2Z">
                             </path>
